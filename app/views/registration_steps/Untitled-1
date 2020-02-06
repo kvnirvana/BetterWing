@@ -1,0 +1,17 @@
+<div class="image-field field logo">
+                        <div class="image image-upload" style="background-image: url(&quot;&quot;);">
+                       <div>
+                          <% if @user.clinic_logo.attached? %>
+                         <%= image_tag @user.clinic_logo.variant(resize: "100x100") %>
+                          <% end %>
+                        </div>   
+                          <a class="overlay">
+                            <i class="material-icons icon ">add</i>
+                          </a>
+                          
+                        </div>
+                      </div>       <label for="file-input">
+     <p><b>Upload billede</b> </p><span class="glyphicon glyphicon-camera"></span>
+   </label>
+
+   <%= f.file_field :practitioner_image, id:"file-input" %>       

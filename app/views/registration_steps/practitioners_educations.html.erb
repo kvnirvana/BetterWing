@@ -1,0 +1,149 @@
+<div class="app-container partner-wrapper clinic-wrapper">
+  <div class="page">
+    <div class="tabs-container"
+      ><ul class="tabs">
+        <li class=""><a class="btn transparent" href="/registration_steps/company"><span class="flex">Klinikoplysninger</span></a></li>
+        <li class=""><a class="btn transparent" href="/registration_steps/practitioners"><span class="flex">Behandlere</span></a></li>
+      </ul>
+    </div>
+
+   <div class="container">
+	    <div class="row">
+        <div class="content-container">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu">
+            <div class="list-group">
+<div class="nav-tab-disabled">
+          
+                          <a href="#tabs-1" class="disabledTab list-group-item text-center">
+                <h4 class="glyphicon glyphicon-pencil"></h4><br/>GENEREL INFO
+              </a>
+                </div>
+                <div class="nav-tab-disabled">
+              <a href="#tabs-2" class="disabledTab list-group-item text-center">
+                <h4 class="glyphicon glyphicon-road"></h4><br/>PROFESSIONER, YDELSER OG SPECIALER
+              </a>
+            </div>
+            
+                          
+              <a href="#tabs-2" class="list-group-item active text-center">
+                <h4 class="glyphicon glyphicon-award"></h4><br/>UDDANNELSER, MEDLEMSKABER OG UDMÆRKELSER
+              </a>
+          
+            </div>
+            </div>
+               
+
+
+               
+                  <!-- UDDANNELSER, MEDLEMSKABER OG UDMÆRKELSER -->
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bhoechie-tab">
+            <center>
+              <div class="content">
+                <div class="content">
+                  <%= form_for @user, url: wizard_path, method: :put do |f| %>
+                    <div class="education-section">
+                      <h2 class="page-title">Uddannelse</h2>
+                      <div class="field-group education">
+                        <div class="btn-container delete">
+                          <button class="btn transparent" type="button">
+                            <span class="flex">
+                              <i class="material-icons icon ">close</i>
+                            </span>
+                          </button>
+                        </div>
+                        <div class="field text-field qualification has-value">
+                          <input type="text" value="asa" id="zqzxbq" placeholder="Uddannelse" title="Uddannelse" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+                        </div>
+                        <div class="field text-field  has-value">
+                          <input type="text" value="sas" id="bri39c" placeholder="Uddannelsessted" title="Uddannelsessted">
+                        </div>
+                        <div class="field text-field  has-value">
+                          <input type="number" min="1901" max="2017" value="1999" id="0b4ip1" placeholder="År (YYYY)" title="År (YYYY)">
+                        </div>
+                      </div>
+                      <div class="btn-container">
+                        <button class="btn transparent" type="button">
+                          <span class="flex">
+                            <i class="material-icons icon ">add</i>
+                          <span class="text">Tilføj flere uddannelser</span>
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="memberships-section">
+                      <h2 class="page-title">Medlemskaber</h2>
+                        <div class="field-group membership">
+                          <div class="btn-container delete">
+                            <button class="btn transparent" type="button">
+                              <span class="flex">
+                                <i class="material-icons icon ">close</i>
+                              </span>
+                            </button>
+                          </div>
+                          <div class="field select-field ">
+                            <div class="Select Select--single is-searchable has-value">
+                              <div class="Select-control">
+                                <span class="Select-multi-value-wrapper" id="react-select-6--value">
+                                  <div class="Select-value">
+                                    <span class="Select-value-label" role="option" aria-selected="true" id="react-select-6--value-item">DAU - Dansk Akupunktur Union</span>
+                                  </div>
+                                  <div class="Select-input" style="display: inline-block;">
+                                    <input role="combobox" aria-expanded="false" aria-owns="" aria-haspopup="false" aria-activedescendant="react-select-6--value" value="" style="width: 5px; box-sizing: content-box;">
+                                    <div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre;"></div>
+                                  </div>
+                                </span>
+                                <span class="Select-arrow-zone">
+                                  <span class="Select-arrow"></span>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="btn-container">
+                          <button class="btn transparent" type="button">
+                            <span class="flex">
+                              <i class="material-icons icon ">add</i> 
+                              <span class="text">Tilføj flere medlemskaber</span>
+                            </span>
+                          </button>
+                        </div>
+                    </div>
+                    <div class="awards-section">
+                      <h2 class="page-title">Udmærkelser</h2>
+                        <div class="field-group award">
+                          <div class="btn-container delete">
+                            <button class="btn transparent" type="button">
+                              <span class="flex">
+                                <i class="material-icons icon ">close</i>
+                              </span>
+                            </button>
+                          </div>
+                          <div class="field text-field name has-value">
+                            <input type="text" value="3rer" id="h8sh8o" placeholder="Udmærkelse" title="Udmærkelse">
+                          </div>
+                          <div class="field text-field  has-value">
+                            <input type="number" min="1901" max="2017" value="1999" id="488jt6" placeholder="Årstal (YYYY)" title="Årstal (YYYY)">
+                          </div>
+                        </div>
+                        <div class="btn-container">
+                          <button class="btn transparent" type="button">
+                            <span class="flex">
+                              <i class="material-icons icon ">add</i>
+                              <span class="text">Tilføj flere udmærkelser</span>
+                            </span>
+                          </button>
+                        </div>
+                    </div>
+                    <div class="btn-container">
+                      <%= f.submit "Gem", :class => 'btn blue'  %> 
+                    </div>
+                  <% end %>
+                </div>
+              </div>         
+            </center>
+            </div>
+        </div>
+      </div>
+  </div>
+  </div>
+</div>

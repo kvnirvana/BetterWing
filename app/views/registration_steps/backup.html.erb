@@ -1,0 +1,111 @@
+<div class="app-container partner-wrapper clinic-wrapper">
+  <div class="page">
+    <div class="tabs-container">
+      <ul class="tabs">
+        <li class=""><a class="btn transparent active" href="/registration_steps/company"><span class="flex">Klinikoplysninger</span></a></li>
+      </ul>
+    </div>
+
+    <div class="container">
+	    <div class="row">
+        <div class="content-container">
+          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu">
+            <div class="list-group">
+            <div class="nav-tab-disabled">
+                          <a href="#tabs-1" class="disabledTab list-group-item text-center">
+                <h4 class="glyphicon glyphicon-pencil"></h4><br/>GENEREL INFO
+              </a></div>
+              <a href="#tabs-2" class="list-group-item active text-center">
+                <h4 class="glyphicon glyphicon-picture"></h4><br/>LOGO & BILLEDER
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bhoechie-tab">                    
+
+
+                <!-- LOGO OG BILLEDER section -->
+           
+            <center>
+              <div class="content">
+                <div class="content">
+                    <div class="logo-section">
+                      <h2 class="page-title">Klinikkens logo</h2>
+                      <%= form_for @user, url: wizard_path, method: :put do |f| %>
+
+                      <div class="image-field field logo">
+                       <div class="image-upload">  
+   <div class="upload">
+   
+  <label class="uploadLabel" for="uploadBtn">Upload logo<span class="glyphicon glyphicon-camera"></span></label>
+ <%= f.file_field :clinic_images %> 
+</div>
+     
+                       <div>
+                          <% if @user.clinic_logo.attached? %>
+                         <%= image_tag @user.clinic_logo.variant(resize: "100x100") %>
+                          <% end %>
+                 
+                        </div>
+                       
+
+                                            
+ <br>
+
+
+                      <p class="footnote">Upload et kvadratisk billede på minimum 200x200 pixels og maksimum 500x500 pixels</p>
+                    </div>
+        
+                    </div>               
+                    </div>
+
+                    
+                    <div class="photos-section">
+                      <h2 class="page-title">Billeder af klinikken</h2>
+                      <div class="photos">
+                       
+                        <div class="image-upload">  <div class="image image-upload" style="background-image: url(&quot;&quot;);">
+                        
+                      
+  <div>
+<% if @user.clinic_images.attached? %>
+  <% @user.clinic_images.each do |image| %>
+    <%= image_tag(image.variant(resize: "100x100")) %>
+<%= link_to 'Remove', delete_image_attachment_registration_step_url(image.signed_id),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+  <% end %>
+
+<% end %>
+
+   <label for="file-input">
+     <p><b>Upload billede</b> </p><span class="glyphicon glyphicon-camera"></span>
+   
+
+  <%= f.file_field :clinic_images %> 
+</div>
+
+</div>
+                   
+
+
+
+                      <p class="footnote">Upload billeder i størrelsesforholdet 5:3, minimum størrelse på 400x240 pixels og maksimum størrelse på 800x480 pixels</p>
+                      </div> 
+                        </div> 
+                     </div>
+                    <div class="btn-container">
+                      <button class="btn blue" type="submit">
+                        <span class="flex">Gem</span>
+                      </button>
+                    </div>
+                  <% end %>
+             
+              </div>           
+            </center>
+            </div>                
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

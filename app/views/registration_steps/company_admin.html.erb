@@ -1,0 +1,146 @@
+<div class="app-container partner-wrapper clinic-wrapper">
+  <div class="page">
+    <div class="tabs-container">
+      <ul class="tabs">
+        <li class=""><a class="btn transparent active" href="/registration_steps/company"><span class="flex">Klinikoplysninger</span></a></li>
+      </ul>
+    </div>
+
+    <div class="container">
+	    <div class="row">
+        <div class="content-container">
+          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu">
+            <div class="list-group">
+              <a href="#tabs-1" class="list-group-item active text-center">
+                <h4 class="glyphicon glyphicon-pencil"></h4><br/>GENEREL INFO
+              </a>
+              <a href="#tabs-2" class="list-group-item text-center">
+                <h4 class="glyphicon glyphicon-picture"></h4><br/>LOGO & BILLEDER
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bhoechie-tab">
+                     
+               
+                <!-- GENEREL INFO section -->
+            <div class="bhoechie-tab-content active" id="tabs-1">
+            <center>
+              <div class="content">
+                <div class="content practitioner">
+                  <h2 class="page-title">Generel information</h2>       
+                    <div class="basic-section">
+                      <%= form_for @user, url: wizard_path, method: :put do |f| %>
+                        <div class="field text-field">
+                          <%= f.text_field :clinic_name, autofocus: true, autocomplete: "Klinikkens navn", placeholder: "Klinikkens navn" %>
+                        </div>
+                        <div class="field text-field">
+                          <%= f.text_field :clinic_address, autofocus: true, autocomplete: "Adresse", placeholder: "Adresse" %>
+                        </div>
+                        <div class="field-group location-group">
+                          <div class="field text-field">
+                            <%= f.text_field :clinic_zip_code, autofocus: true, autocomplete: "Postnr.", placeholder: "Postnr." %>
+                          </div>
+                          <div class="field text-field">
+                            <%= f.text_field :clinic_city, autofocus: true, autocomplete: "By", placeholder: "By" %>
+                          </div>
+                          <div class="field text-field">
+                            <%= f.text_field :clinic_municipality, autofocus: true, autocomplete: "Kommune", placeholder: "Kommune" %>
+                          </div>
+                        </div>          
+                    </div>
+                    <div class="about-section">
+                      <div class="field text-field">
+                          <%= f.text_area :clinic_about, :rows => 5, autofocus: true, autocomplete: "Om klinikken", placeholder: "Om klinikken" %>
+                      </div>
+                    </div>
+                    <div class="field-group contact-section">
+                      <div class="field text-field">
+                        <%= f.text_field :clinic_mail, autofocus: true, autocomplete: "E-mail", placeholder: "E-mail" %>
+                      </div>
+                      <div class="field text-field">
+                        <%= f.text_field :clinic_phone, autofocus: true, autocomplete: "Tlf. nr.", placeholder: "Tlf. nr." %>
+                      </div>
+                      <div class="field text-field">
+                        <%= f.text_field :clinic_website, autofocus: true, autocomplete: "Hjemmeside", placeholder: "Hjemmeside" %>
+                      </div>
+                    </div>
+                    <div class="btn-container">
+                      <%= f.submit "Gem", :class => 'btn blue'  %> 
+                      <% end %>
+                    </div>
+                </div>
+              </div>
+            </center>
+            </div>
+
+
+                <!-- LOGO OG BILLEDER section -->
+            <div class="bhoechie-tab-content" id="tabs-2">
+            <center>
+              <div class="content">
+                <div class="content">
+                  <%= form_for @user, url: wizard_path, method: :put do |f| %>
+                    <div class="logo-section">
+                      <h2 class="page-title">Klinikkens logo</h2>
+                      <div class="image-field field logo">
+                        <div class="image image-upload" style="background-image: url(&quot;&quot;);">
+                       <div>
+                          <% if @user.avatar.attached? %>
+                         <%= image_tag @user.avatar %>
+                          <% end %>
+                        </div>   
+                          <a class="overlay">
+                            <i class="material-icons icon ">add</i>
+                          </a>
+                          
+                        </div>
+                      </div>              
+                      <p class="footnote">Upload et kvadratisk billede på minimum 200x200 pixels og maksimum 500x500 pixels</p>
+                    </div>
+                    <div class=”field”>
+                      <%= f.file_field :avatar %> </div>
+                    </div>               
+                    </div>
+
+                    
+                    <div class="photos-section">
+                      <h2 class="page-title">Billeder af klinikken</h2>
+                      <div class="photos">
+                        <div class="image-field field ">
+                        <div>
+  <div class=”field”> (Upload your new clinic pictures below!)
+  <%= f.file_field :images %> </div>
+</div>
+  <div>
+<% if @user.images.attached? %>
+<p>
+  <strong>Images:</strong>
+  <br>
+  <% @user.images.each do |image| %>
+    <%= image_tag(image) %>
+  <% end %>
+</p>
+<% end %>
+</div>
+
+                        </div>
+                      </div>
+                      <p class="footnote">Upload billeder i størrelsesforholdet 5:3, minimum størrelse på 400x240 pixels og maksimum størrelse på 800x480 pixels</p>
+                    </div>
+                    <div class="btn-container">
+                      <button class="btn blue" type="submit">
+                        <span class="flex">Gem</span>
+                      </button>
+                    </div>
+                  <% end %>
+                </div>
+              </div>           
+            </center>
+            </div>                
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

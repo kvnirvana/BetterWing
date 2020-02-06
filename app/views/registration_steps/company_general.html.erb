@@ -1,0 +1,85 @@
+<div class="app-container partner-wrapper clinic-wrapper">
+  <div class="page">
+    <div class="tabs-container">
+      <ul class="tabs">
+        <li class=""><a class="btn transparent active" href="/registration_steps/company"><span class="flex">Klinikoplysninger</span></a></li>
+      </ul>
+    </div>
+
+    <div class="container">
+	    <div class="row">
+        <div class="content-container">
+          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu">
+            <div class="list-group">
+
+          
+                          <a href="#tabs-1" class="list-group-item active text-center">
+                <h4 class="glyphicon glyphicon-pencil"></h4><br/>GENEREL INFO
+              </a>
+              <div class="nav-tab-disabled">
+              <a href="#tabs-2" class="disabledTab list-group-item text-center">
+                <h4 class="glyphicon glyphicon-picture"></h4><br/>LOGO & BILLEDER
+              </a>
+            </div></div>
+          </div>
+          <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bhoechie-tab">
+                     
+               
+                <!-- GENEREL INFO section -->
+            <center>
+              <div class="content">
+                <div class="content practitioner">
+                  <h2 class="page-title">Generel information</h2>       
+                    <div class="basic-section">
+                      <%= simple_form_for @user, url: wizard_path, method: :put do |f| %>
+                        
+                        <div class="field text-field">
+                          <%= f.input_field :clinic_name, autofocus: true, autocomplete: "Klinikkens navn", placeholder: "Klinikkens navn" %>
+                        </div>
+                        <div class="field text-field">
+                          <%= f.input_field :clinic_address, autofocus: true, autocomplete: "Adresse", placeholder: "Adresse" %>
+                        </div>
+                        <div class="field-group location-group">
+                          <div class="field text-field">
+                            <%= f.input_field :clinic_zip_code, autofocus: true, autocomplete: "Postnr.", placeholder: "Postnr." %>
+                          </div>
+                          <div class="field text-field">
+                            <%= f.input_field :clinic_city, autofocus: true, autocomplete: "By", placeholder: "By" %>
+                          </div>
+                          <div class="field text-field">
+                            <%= f.input_field :clinic_municipality, autofocus: true, autocomplete: "Kommune", placeholder: "Kommune" %>
+                          </div>
+                        </div>          
+                    </div>
+                    <div class="about-section">
+                      <div class="field text-field">
+                          <%= f.input_field :clinic_about, :as => :text, :input_html => { 'rows' => 5}, autofocus: true, autocomplete: "Om klinikken", placeholder: "Om klinikken" %>
+                      </div>
+                    </div>
+                    <div class="field-group contact-section">
+                      <div class="field text-field">
+                        <%= f.input_field :clinic_mail, input_html: { autocomplete: 'email' }, autofocus: true, placeholder: "E-mail" %>
+                      </div>
+                      <div class="field text-field">
+                        <%= f.input_field :clinic_phone, autofocus: true, autocomplete: "Tlf. nr.", placeholder: "Tlf. nr." %>
+                      </div>
+                      <div class="field text-field">
+                        <%= f.input_field :clinic_website, autofocus: true, autocomplete: "Hjemmeside", placeholder: "Hjemmeside" %>
+                      </div>
+                    </div>
+                    <div class="btn-container">
+                      <%= f.submit "Gem", :class => 'btn blue'  %> 
+                      <% end %>
+                    </div>
+                </div>
+              </div>
+            </center>
+              </div>           
+            </center>
+            </div>                
+          </div>
+        </div>
+      </div>
+    </div>
+
+

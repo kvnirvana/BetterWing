@@ -1,0 +1,42 @@
+<div class="auth-wrapper login-wrapper">
+    <div class="page">
+        <div class="tabs-container">
+            <ul class="tabs">
+                <li class=""><a class="btn transparent active" href="/users/sign_in"><span class="flex">Login</span></a></li>
+                <li class=""><a class="btn transparent" href="/users/sign_up"><span class="flex">Tilmeld</span></a></li>
+            </ul>
+        </div>
+        
+        <div class="content-container">
+            <h4 class="page-title">Login</h4>
+                <div class="content">
+                  <div class="form-container">
+
+                    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                      <div class="field">
+                        <%= f.input_field :email, input_html: { autocomplete: 'email' }, placeholder: "E-mail" %> 
+                      </div>  
+
+                      <div class="field">
+                        <%= f.input_field :password, input_html: { autocomplete: 'current-password'}, placeholder: "Adgangskode" %> 
+                      </div>  
+
+                      <div class="forgot-password">
+                        <a href="/users/password/new">Glemt adgangskode?</a>
+                      </div>
+                      <% if devise_mapping.rememberable? %>
+                        <div class="field checkbox-field remember">
+                          <%= f.check_box :remember_me %>
+                          <span class="remember-text">  <%= f.label 'Husk mig'%></span>
+                        </div>
+                      <% end %>
+
+                      <div class="btn-container">
+                        <%= f.button :submit, "Log ind", class: "btn blue" %>
+                      </div>
+                      <% end %>
+                  </div>
+                </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,115 @@
+<div class="app-container partner-wrapper clinic-wrapper">
+  <div class="page">
+    <div class="tabs-container"
+      ><ul class="tabs">
+        <li class=""><a class="btn transparent" href="/registration_steps/company"><span class="flex">Klinikoplysninger</span></a></li>
+        <li class=""><a class="btn transparent" href="/registration_steps/practitioners"><span class="flex">Behandlere</span></a></li>
+      </ul>
+    </div>
+
+   <div class="container">
+	    <div class="row">
+        <div class="content-container">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu">
+            <div class="list-group">
+<div class="nav-tab-disabled">
+          
+                          <a href="#tabs-1" class="disabledTab list-group-item text-center">
+                <h4 class="glyphicon glyphicon-pencil"></h4><br/>GENEREL INFO
+              </a>
+                </div>
+              <a href="#tabs-2" class="list-group-item active text-center">
+                <h4 class="glyphicon glyphicon-road"></h4><br/>PROFESSIONER, YDELSER OG SPECIALER
+              </a>
+          
+            
+                          <div class="nav-tab-disabled">
+              <a href="#tabs-2" class="disabledTab list-group-item text-center">
+                <h4 class="glyphicon glyphicon-award"></h4><br/>UDDANNELSER, MEDLEMSKABER OG UDMÆRKELSER
+              </a>
+            </div>
+            </div>
+            </div>
+
+
+                <!-- PROFESSIONER, YDELSER OG SPECIALER section -->
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bhoechie-tab">
+            <center>
+              <div class="content">
+
+                <div class="content practitioner">
+                  <%= simple_form_for @user, url: wizard_path, method: :put do |f| %>
+                    <div class="specializations-section">
+                    <h2 class="page-title">Professioner</h2>
+                      <div class="field select-field ">
+           <%= collection_select(:f, :user_id, User.where.not(professions: nil), :id, :professions, {:multiple => true}, {:class=>'js-example-basic-multiple', :id=>'jsmultipleddd'}) %>
+                      </div>
+                      <div class="content">
+                        <p>Mangler der en profession på listen? Så skriv til os på&nbsp;<a href="mailto:info@betterwing.dk?Subject=Forslag%20til%20ny%20profession">info@betterwing.dk</a></p>
+                      </div>
+                    </div>
+                    <div class="symptoms-section">
+                      <h2 class="page-title">Specialer</h2>
+                        <div class="field select-field ">
+  
+  
+           <%= collection_select(:f, :user_id, User.where.not(professions: nil), :id, :professions, {:multiple => true}, {:class=>'js-example-basic-multiple', :id=>'jsmultipleddd'}) %>
+
+
+                        </div>
+                        <div class="content">
+                          <p>Mangler der et speciale på listen? Så skriv til os på&nbsp;<a href="mailto:info@betterwing.dk?Subject=Forslag%20til%20nyt%20speciale">info@betterwing.dk</a></p>
+                        </div>
+                    </div>
+                    <div class="services-section">
+                      <h2 class="page-title">Ydelser</h2>
+                      <div class="field-group service">
+                        <div class="btn-container delete">
+                          <button class="btn transparent" type="button">
+                            <span class="flex"><i class="material-icons icon ">close</i></span>
+                          </button>
+                        </div>
+                        <div class="field text-field name has-value">
+                          <input type="text" value="dad" id="gxpo1a" placeholder="Navn på behandling" title="Navn på behandling" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+                        </div>
+                        <div class="field text-field description has-value">
+                          <textarea id="niwc4b" rows="1" placeholder="Beskrivelse af behandling">dddas</textarea>
+                        </div>
+                        <div class="field text-field  has-value">
+                          <input type="number" min="15" max="720" value="33" id="t8qq1x" placeholder="Minutter" title="Minutter">
+                        </div>
+                        <div class="field text-field  has-value">
+                          <input type="number" value="33" id="7rbibg" placeholder="Pris (DKK)" title="Pris (DKK)">
+                        </div>
+                      </div>
+                      <div class="btn-container">
+                        <button class="btn transparent" type="button">
+                          <span class="flex">
+                            <i class="material-icons icon ">add</i>
+                            <span class="text">Tilføj flere ydelser</span>
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="btn-container">
+                      <%= f.submit "Gem", :class => 'btn blue'  %> 
+                    </div>
+                  <% end %>
+                </div>
+              </div>         
+            </center>
+            </div>
+        </div>
+      </div>
+  </div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('.js-example-basic-multiple').select2({
+    multiple:true
+    });
+  });
+
+</script>

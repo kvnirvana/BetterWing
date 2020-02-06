@@ -1,0 +1,86 @@
+<div class="app-container partner-wrapper clinic-wrapper">
+  <div class="page">
+    <div class="tabs-container"
+      ><ul class="tabs">
+        <li class=""><a class="btn transparent" href="/partner/clinic"><span class="flex">Klinikoplysninger</span></a></li>
+        <li class=""><a class="btn transparent" href="/partner/practitioners"><span class="flex">Behandlere</span></a></li>
+      </ul>
+    </div>
+    <div class="content-container">
+      <div class="side-nav">
+        <ul class="menu">
+          <a class="active" href="#home">GENEREL INFO</a>
+          <a class="" href="#home">PROFESSIONER, YDELER OG SPECIALER</a>
+          <a class="" href="#home">UDDANNELSER, MEDLEMSKABER OG UDMÆRKELSER</a>
+        </ul>
+      </div>
+      <div class="content">
+        <div class="content practitioner">
+          <h2 class="page-title">Generel information</h2>
+          <%= form_for @user, url: wizard_path, method: :put do |f| %>
+          <div class="basic-section">
+            <div class="image-field field profile-picture">
+              <div class="image image-upload" style="background-image: url(&quot;&quot;);">
+                <a class="overlay">
+                  <i class="material-icons icon ">add</i>
+                </a>
+                <span class="text-container">Tilføj billede</span>
+                <input type="file" accept="image/*">
+              </div>
+            </div>
+            <div class="info-group">
+              <div class="field-group">
+                <div class="field text-field">
+                  <%= f.text_field :practitioner_first_name, autofocus: true, autocomplete: "Fornavn", placeholder: "Fornavn" %>
+                </div>
+                <div class="field text-field">
+                  <%= f.text_field :practitioner_last_name, autofocus: true, autocomplete: "Efternavn", placeholder: "Efternavn" %>
+                </div>
+              </div>
+              <div class="field-group radio-group">
+                <label>Køn</label>
+                <div class="field checkbox-field ">
+                  <span class="checkbox">
+                    <input type="radio" id="jovckz" name="gender" value="on"><label for="jovckz">Mand</label>
+                  </span>
+                </div>
+                <div class="field checkbox-field ">
+                  <span class="checkbox">
+                    <input type="radio" id="zuydax" name="gender" value="on"><label for="zuydax">Kvinde</label>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="about-section">
+            <div class="field text-field">
+              <%= f.text_area :practitioner_description, :rows => 5, autofocus: true, autocomplete: "Beskrivelse af behandler", placeholder: "Beskrivelse af behandler" %>
+            </div>
+            <div class="field checkbox-field ">
+              <span class="checkbox">
+                <input type="checkbox" id="yryker" value="on"><label for="yryker">Overenskomst med den offentlige sygesikring</label>
+              </span>
+            </div>
+          </div>
+          <div class="field-group contact-section">
+            <div class="field text-field">
+              <%= f.text_field :practitioner_mail, autofocus: true, autocomplete: "E-mail", placeholder: "E-mail" %>
+            </div>
+              <div class="field text-field">
+                <%= f.text_field :practitioner_phone, autofocus: true, autocomplete: "Tlf. nr.", placeholder: "Tlf. nr." %>
+              </div>
+                <div class="field text-field">
+                  <%= f.text_field :practitioner_website, autofocus: true, autocomplete: "Hjemmeside", placeholder: "Hjemmeside" %>
+                </div>
+          </div>
+            <div class="btn-container">
+                 <%= f.submit "Gem", :class => 'btn blue'  %> 
+<% end %>
+            </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+

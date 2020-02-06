@@ -1,0 +1,29 @@
+I"Û(function() {
+  jQuery(function() {
+    var field, field_name, field_value, url;
+    $(".js_inline_validate .js_validate_me").on('blur', function() {});
+    field = this;
+    field_name = this.id.replace('event_', '');
+    field_value = $(field).val();
+    url = $(field).closest('form').data('validateUrl') + '?' + field_name + '=' + field_value;
+    return $.ajax(url, {
+      type: 'POST',
+      dataType: "json",
+      success: function(data, textStatus, jqXHR) {
+        var field_group;
+        field = $("." + 'js_event_' + data['field_name']);
+        field_group = field.closest('.form-group');
+        field.next('.help-block').remove();
+        if (data['valid']) {
+          field_group.removeClass('has-error');
+          return field_group.addClass('success-block');
+        } else {
+          field_group.addClass('has-error');
+          return field_group.append("<span class='help-block'>" + data['message'] + "</span>");
+        }
+      }
+    });
+  });
+
+}).call(this);
+:ET

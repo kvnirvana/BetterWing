@@ -1,0 +1,215 @@
+
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+  <br><br>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <b>Behandler oplysning</b>
+  <br><br>
+
+  <div class=”field”> (Upload your new profile picture below!)
+  <%= f.file_field :practitioner_image %> </div>
+
+
+<div>
+  <% if @user.practitioner_image.attached? %>
+    <%= image_tag @user.practitioner_image.variant(resize: "100x100") %>
+  <% end %>
+  
+</div>
+  <div class="field">
+    <%= f.label :gender %><br />&nbsp;&nbsp;&nbsp;
+   <%=  f.collection_radio_buttons :gender, User.genders.map{ |a| [a.first,a.first] },  :first, :second %>
+                       
+  </div>
+
+  <div class="field">
+    <%= f.label :practitioner_first_name %><br />
+    <%= f.text_field :practitioner_first_name, autofocus: true, autocomplete: "Fornavn" %>
+  </div>
+
+    <div class="field">
+    <%= f.label :practitioner_last_name %><br />
+    <%= f.text_field :practitioner_last_name, autofocus: true, autocomplete: "Efternavn" %>
+  </div>
+
+    <div class="field">
+    <%= f.label :practitioner_description %><br />
+    <%= f.text_field :practitioner_description, autofocus: true, autocomplete: "Beskrivelse af behandler" %>
+  </div>
+
+      <div class="field">
+    <%= f.label :practitioner_mail %><br />
+    <%= f.text_field :practitioner_mail, autofocus: true, autocomplete: "E-mail" %>
+  </div>
+
+      <div class="field">
+    <%= f.label :practitioner_phone %><br />
+    <%= f.text_field :practitioner_phone, autofocus: true, autocomplete: "Tlf. nr." %>
+  </div>
+
+        <div class="field">
+    <%= f.label :practitioner_website %><br />
+    <%= f.text_field :practitioner_website, autofocus: true, autocomplete: "Hjemmeside" %>
+  </div>
+
+          <div class="field">
+    <%= f.label :public_health_insurance %><br />
+    <%= f.check_box :public_health_insurance, autofocus: true, autocomplete: "Hjemmeside" %>
+  </div>
+
+  <br><br><br>
+ 
+<b>Klikkens oplysninger</b>
+<br><br>
+
+  <div class=”field”> (Upload your new profile picture below!)
+  <%= f.file_field :clinic_logo %> </div>
+
+
+
+
+<div>
+  <% if @user.clinic_logo.attached? %>
+    <%= image_tag @user.clinic_logo.variant(resize: "100x100") %>
+
+  <% end %>
+  
+</div>
+
+
+  <div class=”field”> (Upload your new clinic pictures below!)
+  <%= f.file_field :clinic_images %> </div>
+
+<div>
+<% if @user.clinic_images.attached? %>
+<p>
+  <strong>Images:</strong>
+  <br>
+  <% @user.clinic_images.each do |image| %>
+    <%= image_tag(image.variant(resize: "100x100")) %>
+  <% end %>
+</p>
+<% end %>
+</div>
+  <div class="field">
+    <%= f.label :clinic_name %><br />
+    <%= f.text_field :clinic_name, autofocus: true, autocomplete: "Klinikkens navn" %>
+  </div>
+
+    <div class="field">
+    <%= f.label :clinic_name %><br />
+    <%= f.text_field :clinic_name, autofocus: true, autocomplete: "Klinikkens navn" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :clinic_address %><br />
+    <%= f.text_field :clinic_address, autofocus: true, autocomplete: "Adresse" %>
+  </div>
+  
+    <div class="field">
+    <%= f.label :clinic_zip_code %><br />
+    <%= f.text_field :clinic_zip_code, autofocus: true, autocomplete: "Postnr." %>
+  </div>
+
+    <div class="field">
+    <%= f.label :clinic_city %><br />
+    <%= f.text_field :clinic_city, autofocus: true, autocomplete: "By" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :clinic_municipality %><br />
+    <%= f.text_field :clinic_municipality, autofocus: true, autocomplete: "Kommune" %>
+  </div>
+
+    <div class="field">
+    <%= f.label :clinic_about %><br />
+    <%= f.text_field :clinic_about, autofocus: true, autocomplete: "Om klinikken" %>
+  </div>
+
+      <div class="field">
+    <%= f.label :clinic_about %><br />
+    <%= f.text_field :clinic_about, autofocus: true, autocomplete: "Om klinikken" %>
+  </div>
+
+        <div class="field">
+    <%= f.label :clinic_mail %><br />
+    <%= f.text_field :clinic_mail, autofocus: true, autocomplete: "E-mail" %>
+  </div>
+
+        <div class="field">
+    <%= f.label :clinic_phone %><br />
+    <%= f.text_field :clinic_phone, autofocus: true, autocomplete: "Tlf. nr." %>
+  </div>
+
+      <div class="field">
+    <%= f.label :clinic_website %><br />
+    <%= f.text_field :clinic_website, autofocus: true, autocomplete: "Hjemmeside" %>
+  </div>
+  <br><br><br>
+
+<b>Bruger oplysninger</b>
+<br><br>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "Fornavn" %>
+  </div>
+  
+    <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "Efternavn" %>
+  </div>
+
+      <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone, autofocus: true, autocomplete: "Tlf. nummer" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+<%= link_to "Back", :back %>
+
+<script>
+$(document).ready(function() {
+    $('.js-example-basic-multiple').select2({
+    multiple:true
+    });
+  });
+
+</script>

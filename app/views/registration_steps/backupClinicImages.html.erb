@@ -1,0 +1,162 @@
+<div class="app-container partner-wrapper clinic-wrapper">
+  <div class="page">
+    <div class="tabs-container">
+      <ul class="tabs">
+        <li class=""><a class="btn transparent active" href="/registration_steps/company"><span class="flex">Klinikoplysninger</span></a></li>
+      </ul>
+    </div>
+
+    <div class="container">
+	    <div class="row">
+        <div class="content-container">
+          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu">
+            <div class="list-group">
+            <div class="nav-tab-disabled">
+                          <a href="#tabs-1" class="disabledTab list-group-item text-center">
+                <h4 class="glyphicon glyphicon-pencil"></h4><br/>GENEREL INFO
+              </a></div>
+              <a href="#tabs-2" class="list-group-item active text-center">
+                <h4 class="glyphicon glyphicon-picture"></h4><br/>LOGO & BILLEDER
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bhoechie-tab">                    
+
+
+                <!-- LOGO OG BILLEDER section -->
+           
+          
+              <div class="content">
+                <div class="content company">
+                    <div class="logo-section">
+                      <h2 class="page-title">Klinikkens logo</h2>
+                      <%= form_for @user, url: wizard_path, method: :put do |f| %>
+
+          
+
+
+<div class="upload">
+<% if @user.clinic_logo.attached? %>
+<%= image_tag @user.clinic_logo.variant(resize: "100x100")%>
+
+<span class="delete-image"><%= link_to 'Slet billede', delete_image_attachment_registration_url(@user.clinic_logo.signed_id),
+                method: :delete,
+                data: { confirm: 'Er du sikker på, at du vil slette dette billede?' } %>
+ </span> 
+<% else %>
+<div class="overlay" id="oldDiv"><div class="overlay-icon">+</div>
+ <%= f.file_field :clinic_logo, accept:'image/*', :onchange => "preview_clinic_logo(event)" %> 
+
+<div class="overlay-text">Tilføj billede</div></div>
+<% end %>
+<div id="newDiv"><img id="output_clinic_logo" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/></div>
+</div>
+
+
+
+         
+            
+                    </div>
+
+                    
+                    <div class="photos-section">
+                      <h2 class="page-title">Billeder af klinikken</h2>
+                      <div class="photos">
+                  
+ 
+<% if @user.clinic_images.attached? %>
+  <% @user.clinic_images.each do |image| %>
+
+<div class="image-show">    
+<%= image_tag(image.variant(resize: "100x100")) %>
+<span class="delete-image"><%= link_to 'Slet billede', delete_image_attachment_registration_url(image.signed_id),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+ </span> 
+   </div>
+  <% end %>
+
+<% end %>
+
+<div class="image-upload"> 
+<div class="overlay" id="oldDivImages"><div class="overlay-icon">+</div>
+ <%= f.file_field :clinic_images, multiple: true, accept:'image/*', id: "gallery-photo-add" %> 
+     </div>
+<div class="overlay-text">Tilføj billede</div>
+
+</div>
+<div class="gallery"></div>
+            
+</div> 
+
+
+<div class="footnote">
+<p>Upload billeder i størrelsesforholdet 5:3, minimum størrelse på 400x240 pixels og maksimum størrelse på 800x480 pixels</p>
+ </div>
+                      
+                        </div> 
+                    <div class="btn-container">
+                      <button class="btn blue" type="submit">
+                        <span class="flex">Gem</span>
+                      </button>
+                    </div>  
+                  <% end %>
+                
+              </div>
+              </div>           
+            
+            </div>                
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<script type='text/javascript'>
+function preview_clinic_logo(event) 
+{
+ var reader = new FileReader();
+ reader.onload = function()
+ {
+  var output = document.getElementById('output_clinic_logo');
+  output.src = reader.result;
+ }
+ reader.readAsDataURL(event.target.files[0]);
+ document.getElementById("oldDiv").style.display="none";
+document.getElementById("newDiv").style.display="block";
+}
+
+
+
+
+
+
+
+
+$(function() {
+    // Multiple images preview in browser
+    var imagesPreview = function(input, placeToInsertImagePreview) {
+
+        if (input.files) {
+            var filesAmount = input.files.length;
+
+            for (i = 0; i < filesAmount; i++) {
+                var reader = new FileReader();
+
+                reader.onload = function(event) {
+                    $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                }
+
+                reader.readAsDataURL(input.files[i]);
+            }
+        }
+
+    };
+
+    $('#gallery-photo-add').on('change', function() {
+        imagesPreview(this, 'div.gallery');
+    });
+});
+</script>
+

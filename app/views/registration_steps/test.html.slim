@@ -1,0 +1,10 @@
+<%= link_to 'skip', next_wizard_path %>
+
+<%= form_for @user, url: wizard_path, method: :put do |f| %>
+    <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone, autofocus: true, autocomplete: "Tlf. nummer" %>
+  </div>
+
+  <%= f.submit "Save and Next" %> # will move to the next page
+<% end %>

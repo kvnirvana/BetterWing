@@ -1,0 +1,61 @@
+<div class="auth-wrapper login-wrapper">
+    <div class="page">
+        <div class="tabs-container">
+            <ul class="tabs">
+                <li class=""><a class="btn transparent" href="/users/sign_in"><span class="flex">Login</span></a></li>
+                <li class=""><a class="btn transparent active" href="/users/sign_up"><span class="flex">Tilmeld</span></a></li>
+            </ul>
+        </div>
+        <div class="content-container">
+            <h4 class="page-title">Tilmeld</h4>
+            <div class="content">
+                <p class="description">Dine personlige oplysninger bliver ikke videresendt, publiceret eller på anden måde stillet til rådighed for tredjepart.</p>
+                <div class="form-container">
+
+<%= simple_form_for(resource, as: resource_name, validate: true, url: registration_path(resource_name)) do |f| %>
+
+  <div class="field text-field">
+    <%= f.input_field :first_name, required: true, autocomplete: "Fornavn", placeholder: "Fornavn *" %>
+  </div>
+
+  <div class="field text-field">
+    <%= f.input_field :last_name, required: true, autofocus: true, autocomplete: "Efternavn", placeholder: "Efternavn *" %>
+  </div>
+
+    <div class="field text-field">
+    <%= f.input_field :phone, autofocus: true, autocomplete: "Tlf. nr.", placeholder: "Tlf. nr." %>
+  </div>
+
+  <div class="field text-field">
+    <%= f.input_field :email, required: true, autofocus: true, autocomplete: "email", placeholder: "Email *" %>
+  </div>
+
+  <div class="field text-field">
+
+
+    <%= f.input_field :password, required: true, autocomplete: "new-password", placeholder: "Adgangskode *" %>
+    
+  </div>
+    <% if @minimum_password_length %>
+    <em>(minimum <%= @minimum_password_length %> tegn)</em>
+    <% end %><br />
+  <div class="field text-field">
+   
+    <%= f.input_field :password_confirmation, required: true, autocomplete: "new-password", placeholder: "Bekræft adgangskode *" %>
+  </div>
+
+  <div class="tnc"><p>Ved at tilmelde dig accepterer du<a href="/terms">vores Vilkår og betingelser.</a></p></div>
+  
+  <div class="btn-container two">
+
+<%= f.button :submit, "Opret bruger", class: "btn blue" %>
+<%= f.button :submit, "Opret klinik", class: "btn blue" %>
+</div>
+<% end %>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

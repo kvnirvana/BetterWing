@@ -1,0 +1,119 @@
+
+<div class="container">
+    <div class="landing-body">
+        <div class="home-wrapper">
+            <div class="banner">
+                <div class="overlay"></div>
+                <h2 class="heading">Find den rigtige behandler</h2>
+                <div class="search-panel" >                              
+                    <div class="section-heading">
+                        <h2>Søg blandt 855 registrerede behandlere, rådgivere og terapeuter</h2>
+                    </div> 
+                    <div class="search-form" action="" method="get">
+                        <div class="auto-complete-container focused">
+                            <div class="field">
+                                <label for="search-location" class="icon-container">
+                                    <i class="material-icons icon ">place</i>
+                                </label>
+                                <input id="search-location" placeholder="Hele Danmark" autocomplete="off" value="">
+                                <div class="spinner">
+                                    <i class="fa fa-spin fa-circle-o-notch icon"></i>
+                                </div>
+                            </div>     
+                            <div class="suggestions-container">
+                                <ul class="suggestions"></ul>
+                            </div>
+                        </div>
+
+                        <div class="auto-complete-container search-problem">
+                            <div class="field">
+                                <label for="search-problem" class="icon-container">
+                                    <i class="material-icons icon ">search</i>
+                                </label>
+                                <input id="search-problem" placeholder="Dit problem fx iskias" value="" autocomplete="off">
+                                <div class="spinner">
+                                    <i class="fa fa-spin fa-circle-o-notch icon"></i>
+                                </div>
+                            </div>
+                            <div class="suggestions-container">
+                                <ul class="suggestions"></ul>
+                            </div>
+                        </div>
+
+
+                        <div class="auto-complete-container search-term">
+                            <div class="field">
+                                <label for="search-term" class="icon-container">
+                                    <i class="material-icons icon ">search</i>
+                                </label>
+                                <input id="search-term" placeholder="Behandlingsform, klinik eller behandler" value="" autocomplete="off">
+                                <div class="spinner">
+                                    <i class="fa fa-spin fa-circle-o-notch icon"></i>
+                                </div>
+                            </div>
+                            <div class="suggestions-container">
+                                <ul class="suggestions"></ul>
+                            </div>
+                        </div>                 
+                     
+                        <div class="btn-container">
+                            <button class="btn blue">
+                                <span class="flex">Søg</span>
+                            </button>
+                        </div>                               
+                    </div>
+                </div> 
+            </div>
+                        
+            <div class="practitioners-container">
+                <h4 class="section-heading">Bedst bedømte behandlere nær dig</h4>
+                <div class="practitioner">
+                    <div class="ui-g-12 nopad"><b> Inge Vibeke Eskholm </b></div>
+                    <div class="ui-g-12 nopad">Akupunktør</div>
+                    <div class="ui-g-12 nopad"><span class="city">Horsens, Horsens kommune</span></div>
+                    <div class="ui-g-12 nopad">Speciale i: Smertelindring</div>
+                    <div class="ui-g-12 nopad"><p:rating value="#{indexController.rating}" cancel="false" disabled="true"/></div>
+                </div>                          
+            </div>
+
+            <div id="patient-banner"> 
+                <div class="overlay"></div>               
+                <h3 class="heading">Har du en lidelse?</h3>
+                <div class="btn-container">
+                    <a href="/signup" class="btn pink"><span class="flex">Opret profil</span></a>
+                </div>        
+            </div>
+
+            <div class="patient-benefits-container">
+                <ul class="benefits">
+                    <li><div class="icon"><%= image_tag("patient_benefit_images/search.png", :alt => "Search") %></div><p class="description">Søg! Og du skal finde en sociale markedsplads for behandling, terapi og velvære. Gratis.</p></li>
+                    <li><div class="icon"><%= image_tag("patient_benefit_images/map.png", :alt => "Map") %></div><p class="description">Du kan søge specifikt på en bestemt type lidelse I dit lokal-område, eller i hele DK</p></li>
+                    <li><div class="icon"><%= image_tag("patient_benefit_images/speech-bubble.png", :alt => "Message") %></div><p class="description">Hjælp andre mennesker, dele dine erfaringer og anbefal de behandlere du godt kan lide.</p></li>
+                    <li><div class="icon"><%= image_tag("patient_benefit_images/timer.png", :alt => "Stopwatch") %></div><p class="description">Finde tilbud og last-minute-deals til halv pris</p></li>
+                    <li><div class="icon"><%= image_tag("patient_benefit_images/calendar.png", :alt => "Appointment") %></div><p class="description">Book en tid med det samme!</p></li>
+                </ul>
+            </div>
+
+            <div id="therapist-banner">
+                <div class="overlay"></div>           
+                <div> 
+                    <h3 class="heading">Er du behandler,terapeut eller coach?</h3>
+                </div>
+                <div class="btn-container">
+                    <a href="http://www.yahoo.dk" class="btn light-blue"><span class="flex">Udbyd ydelse</span></a>
+                </div>                                       
+            </div>
+
+            <div class="therapist-benefits-container">
+                <ul class="benefits">
+                    <li><div class="icon"><%= image_tag("therapist_benefit_images/stats.png", :alt => "Stats") %></div><p class="description">Komplet bookingsystem på din hjemmeside og app, med integreret regnskabsmodul</p></li>
+                    <li><div class="icon"><%= image_tag("therapist_benefit_images/store.png", :alt => "Store") %></div><p class="description">Mulighed for hjælp til din egen markedsføring, f.eks. sociale medier, egen hjemmeside etc.</p></li>
+                    <li><div class="icon"><%= image_tag("therapist_benefit_images/waiting.png", :alt => "Waiting") %></div><p class="description">Mulighed for at afsætte tider du ellers ikke kan komme af med f.eks. pga. sen aflysning</p></li>
+                    <li><div class="icon"><%= image_tag("therapist_benefit_images/visible.png", :alt => "Visible") %></div><p class="description">Markedsføring og søgemaskineoptimering af din forretning</p></li>
+                    <li><div class="icon"><%= image_tag("therapist_benefit_images/heart.png", :alt => "Heart") %></div><p class="description">Et online fællesskab med andre behandlere</p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

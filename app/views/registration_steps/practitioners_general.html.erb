@@ -1,0 +1,125 @@
+<div class="app-container partner-wrapper clinic-wrapper">
+  <div class="page">
+    <div class="tabs-container"
+      ><ul class="tabs">
+        <li class=""><a class="btn transparent" href="/registration_steps/company"><span class="flex">Klinikoplysninger</span></a></li>
+        <li class=""><a class="btn transparent" href="/registration_steps/practitioners"><span class="flex">Behandlere</span></a></li>
+      </ul>
+    </div>
+
+   <div class="container">
+	    <div class="row">
+        <div class="content-container">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu">
+            <div class="list-group">
+
+          
+                          <a href="#tabs-1" class="list-group-item active text-center">
+                <h4 class="glyphicon glyphicon-pencil"></h4><br/>GENEREL INFO
+              </a>
+              <div class="nav-tab-disabled">
+              <a href="#tabs-2" class="disabledTab list-group-item text-center">
+                <h4 class="glyphicon glyphicon-road"></h4><br/>PROFESSIONER, YDELSER OG SPECIALER
+              </a>
+            </div>
+            
+                          <div class="nav-tab-disabled">
+              <a href="#tabs-2" class="disabledTab list-group-item text-center">
+                <h4 class="glyphicon glyphicon-award"></h4><br/>UDDANNELSER, MEDLEMSKABER OG UDMÆRKELSER
+              </a>
+            </div>
+            </div>
+            </div>       
+               
+                <!-- GENEREL INFO section -->
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bhoechie-tab active">
+            <center>
+              <div class="content">
+                <div class="content practitioner">
+                  <h2 class="page-title">Generel information</h2>
+                  <%= simple_form_for @user, url: wizard_path, method: :put do |f| %>
+                    <div class="basic-section">
+<div class="upload">
+<% if @user.practitioner_image.attached? %>
+<%= image_tag @user.practitioner_image.variant(resize: "100x100")%>
+
+<% else %>
+<div class="overlay" id="oldDiv"><div class="overlay-icon">+</div>
+ <%= f.file_field :practitioner_image, accept:'image/*', :onchange => "preview_image(event)" %> 
+
+<div class="overlay-text">Tilføj billede</div></div>
+<% end %>
+<div id="newDiv"><img id="output_image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/></div>
+</div>
+                    
+
+                      <div class="info-group">
+                        <div class="field-group">
+                          <div class="field text-field">
+                        
+                            <%= f.input_field :practitioner_first_name, required: true, autofocus: true, autocomplete: "Fornavn", placeholder: "Fornavn" %>
+                          </div>
+                          <div class="field text-field">
+                            <%= f.input_field :practitioner_last_name, required: true, autofocus: true, autocomplete: "Efternavn", placeholder: "Efternavn" %>
+                          </div>
+                        </div>
+                        <div class="field-group radio-group">
+                          <label>Køn:</label>
+                          <div class="field checkbox-field ">
+                            <%=  f.collection_radio_buttons :gender, User.genders.map{ |a| [a.first,a.first] },  :first, :second %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="about-section">
+                      <div class="field text-field">
+                          <%= f.input_field :practitioner_description, :as => :text, :input_html => { 'rows' => 5}, autofocus: true, autocomplete: "Beskrivelse af behandler", placeholder: "Beskrivelse af behandler" %>
+                      </div>
+                      <div class="field checkbox-field ">
+                        <span class="checkbox">
+                        
+                          <%= f.check_box :public_health_insurance %><label for="yryker">Overenskomst med den offentlige sygesikring</label>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="field-group contact-section">
+                      <div class="field text-field">
+                        <%= f.input_field :practitioner_mail, input_html: { autocomplete: 'email' }, autofocus: true, placeholder: "E-mail" %>
+                      </div>
+                      <div class="field text-field">
+                        <%= f.input_field :practitioner_phone, autofocus: true, autocomplete: "Tlf. nr.", placeholder: "Tlf. nr." %>
+                      </div>
+                      <div class="field text-field">
+                        <%= f.input_field :practitioner_website, autofocus: true, autocomplete: "Hjemmeside", placeholder: "Hjemmeside" %>
+                      </div>
+                    </div>
+                    <div class="btn-container">
+                      <%= f.submit "Gem", :class => 'btn blue'  %> 
+                  <% end %>
+                    </div>
+                </div>
+              </div>
+            </center>
+            </div>
+        </div>
+      </div>
+  </div>
+  </div>
+</div>
+
+<script type='text/javascript'>
+function preview_image(event) 
+{
+ var reader = new FileReader();
+ reader.onload = function()
+ {
+  var output = document.getElementById('output_image');
+  output.src = reader.result;
+ }
+ reader.readAsDataURL(event.target.files[0]);
+ document.getElementById("oldDiv").style.display="none";
+document.getElementById("newDiv").style.display="block";
+}
+
+
+</script>
