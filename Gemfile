@@ -42,7 +42,7 @@ gem 'rails_admin', '~> 2.0'
 gem 'cancancan'
 gem 'wicked'	
 gem 'simple_form'
-gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.12'
 
 
 
